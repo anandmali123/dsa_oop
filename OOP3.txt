@@ -1,0 +1,70 @@
+/* 
+  
+   Practical : 3
+   Title : Inheritance
+*/
+  
+ 
+class Employee {
+    int emp_id, basic_salary;
+    String emp_name;
+
+    Employee(String n, int id, int salary) {
+        emp_id = id;
+        basic_salary = salary;
+        emp_name = n;
+    }
+
+    void print() {
+        int hra = basic_salary * 10 / 100;
+        int ta = basic_salary * 15 / 100;
+        int gross_salary = hra + ta + basic_salary;
+        System.out.println("name of employee is " + emp_name);
+        System.out.println("ID of employee is " + emp_id);
+        System.out.println("Gross salary of employee is " + gross_salary);
+    }
+}
+class TeamLeader extends Employee {
+    TeamLeader(String n, int id, int salary) {
+        super(n, id, salary);
+        super.print();
+    }
+}
+class TeamManager extends Employee {
+    TeamManager(String n, int id, int salary) {
+        super(n, id, salary);
+        super.print();
+    }
+}
+class Developer extends Employee {
+    Developer(String n, int id, int salary) {
+        super(n, id, salary);
+        super.print();
+    }
+}
+
+public class Exp3{
+    public static void main(String[] args) {
+
+        TeamLeader l= new TeamLeader("Taran", 34, 40000);
+        TeamManager m= new TeamManager("Ajay",55,50000);
+        Developer d= new Developer("jay",45,60000) ;
+    }
+}
+
+
+/* OUTPUT
+
+
+name of employee is Taran
+ID of employee is 34
+Gross salary of employee is 50000
+
+name of employee is Ajay
+ID of employee is 55
+Gross salary of employee is 62500
+
+name of employee is jay
+ID of employee is 45
+Gross salary of employee is 75000
+*/
